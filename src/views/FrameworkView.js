@@ -1,16 +1,11 @@
-// @flow
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import LevelledRenderer from '../components/renderers/levelledRenderer'
 import TextRenderer from '../components/renderers/textRenderer'
-import '../css/main.min.css'
+import '../css/main.css'
 
-type Props = {
-  data: Object,
-}
-
-class View extends React.Component<Props> {
+class View extends React.Component {
   render() {
     const { pageData, genericData, allMarkdownRemark } = this.props.data
     const { frontmatter: pageFrontmatter, html } = pageData
@@ -36,12 +31,12 @@ class View extends React.Component<Props> {
   }
 }
 
-export default function FrameworkView({ data }: Object) {
+export default function FrameworkView({ data }) {
   return <View data={data} />
 }
 
 export const pageQuery = graphql`
-  query($path: String!, $isYaml: Boolean!) {
+  query($frameworkPath: String!, $isYaml: Boolean!) {
     allMarkdownRemark: allMarkdownRemark {
       edges {
         node {
@@ -55,7 +50,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    pageData: markdownRemark(frontmatter: { path: { eq: $path } }) {
+    pageData: markdownRemark(frontmatter: { path: { eq: $frameworkPath } }) {
       html
       frontmatter {
         path

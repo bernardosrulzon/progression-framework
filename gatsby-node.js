@@ -1,33 +1,11 @@
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.(md|txt)$/i,
-          use: 'raw-loader'
-        },
-        {
-          test: /\.(yaml|framework)$/i,
-          use: `js-yaml-loader`
-        },
-        {
-          test: /\.(csv|list)$/i,
-          use: `dsv-loader`,
-        },
-      ],
-    },
-  })
-}
-const path = require("path")
+const path = require('path')
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
   const FrameworkView = path.resolve(`src/views/FrameworkView.js`)
-  graphql(`
+  return graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [] }
-        limit: 1000
-      ) {
+      allMarkdownRemark(limit: 1000) {
         edges {
           node {
             frontmatter {
@@ -47,7 +25,8 @@ exports.createPages = ({ actions, graphql }) => {
         path: node.frontmatter.path,
         component: FrameworkView,
         context: {
-          isYaml: node.frontmatter.yaml
+          isYaml: node.frontmatter.yaml,
+          frameworkPath: node.frontmatter.path,
         },
       })
     })

@@ -1,6 +1,5 @@
-// @flow
 import * as React from 'react'
-import { Location } from '@reach/router'
+import { Location } from '@gatsbyjs/reach-router'
 import { Helmet } from 'react-helmet'
 import favicon from '../images/favicon.png'
 import menuIcon from '../images/menu_icon.svg'
@@ -25,16 +24,7 @@ import {
   BREAKPOINT_MOBILE,
 } from './styles'
 
-type Props = {
-  data: Object,
-  children?: React.Node,
-}
-
-type State = {
-  isSidebarVisible: boolean,
-}
-
-const ToolbarRenderer = ({ sidebarClickHandler, isSidebarVisible }: Object) =>
+const ToolbarRenderer = ({ sidebarClickHandler, isSidebarVisible }) =>
   isSidebarVisible ? null : (
     <Toolbar className={isSidebarVisible ? 'visible' : null}>
       <MenuIcon onClick={sidebarClickHandler} src={menuIcon} />
@@ -44,11 +34,7 @@ const ToolbarRenderer = ({ sidebarClickHandler, isSidebarVisible }: Object) =>
     </Toolbar>
   )
 
-const SidebarRenderer = ({
-  sidebarClickHandler,
-  isSidebarVisible,
-  data,
-}: Object) =>
+const SidebarRenderer = ({ sidebarClickHandler, isSidebarVisible, data }) =>
   isSidebarVisible ? (
     <Location>
       {({ location }) => (
@@ -71,7 +57,7 @@ const SidebarRenderer = ({
     </Location>
   ) : null
 
-class Layout extends React.Component<Props, State> {
+class Layout extends React.Component {
   state = { isSidebarVisible: false }
 
   componentDidMount() {
@@ -89,7 +75,7 @@ class Layout extends React.Component<Props, State> {
     })
   }
 
-  sidebarClickHandler = (event: SyntheticUIEvent<>) => {
+  sidebarClickHandler = event => {
     event != null ? event.preventDefault() : null
     this.setState({
       isSidebarVisible: !this.state.isSidebarVisible,

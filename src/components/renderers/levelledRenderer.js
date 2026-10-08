@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import * as R from 'ramda'
 import Masonry from 'react-masonry-css'
@@ -19,46 +18,23 @@ import {
   MarkdownContent,
 } from '../styles'
 
-type Props = {
-  pageData: Object,
-  genericData: Object,
-  html: Object,
-}
-
-type State = {
-  level: ?number,
-  isGeneric: boolean,
-  inheritsGeneric: boolean,
-}
-
-type CriteriaProps = {
-  content: Object,
-}
-
-type CriteriaState = {
-  isHidden: boolean,
-}
-
 const masonryBreakpoints = {
   default: 3,
   [BREAKPOINT_DESKTOP]: 2,
   [BREAKPOINT_TABLET]: 1,
 }
 
-class ExampleCriteriaComponent extends React.Component<
-  CriteriaProps,
-  CriteriaState,
-> {
+class ExampleCriteriaComponent extends React.Component {
   state = { isHidden: true }
 
-  toggleView = (event: SyntheticUIEvent<>) => {
+  toggleView = event => {
     event != null ? event.preventDefault() : null
     this.setState({
       isHidden: !this.state.isHidden,
     })
   }
 
-  generateExamples = (content: Object) => {
+  generateExamples = content => {
     let criteria = content.examples.map((val, i) => (
       <li key={i + '-' + Math.random()}>{val}</li>
     ))
@@ -81,8 +57,8 @@ class ExampleCriteriaComponent extends React.Component<
   }
 }
 
-export default class LevelledRenderer extends React.Component<Props, State> {
-  constructor(props: Props) {
+export default class LevelledRenderer extends React.Component {
+  constructor(props) {
     super(props)
     const genericDataTitles = props.genericData.topics.map(obj => obj.title)
     const pageDataTitles = props.pageData.topics.map(obj => obj.title)
@@ -108,7 +84,7 @@ export default class LevelledRenderer extends React.Component<Props, State> {
     }
   }
 
-  handleClick = (val: ?number) => (event: SyntheticUIEvent<>) => {
+  handleClick = val => event => {
     event.preventDefault()
     this.setState({
       level: val,
@@ -165,7 +141,7 @@ export default class LevelledRenderer extends React.Component<Props, State> {
     )
   }
 
-  createTopic = (topic: Object) => {
+  createTopic = topic => {
     const { genericData } = this.props
     const { level, isGeneric } = this.state
     const genericTopic = genericData.topics.filter(

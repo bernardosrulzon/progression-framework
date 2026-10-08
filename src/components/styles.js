@@ -1,4 +1,3 @@
-// @flow
 import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 import PartialNavLink from './partialNavLink'

@@ -1,4 +1,3 @@
-// @flow
 import React from 'react'
 import toTitleCase from '../utils/toTitleCase'
 import {
@@ -12,24 +11,7 @@ import {
   DefaultStyledLink,
 } from './styles'
 
-type SectionProps = {
-  children: *,
-  name: string,
-  isHidden?: boolean,
-  handleToggle: Function,
-  openedTopics: Array<?*>,
-}
-
-type SidebarState = {
-  openedTopics: Array<?*>,
-}
-
-type SidebarProps = {
-  data: Object,
-  location: Object,
-}
-
-class SidebarSection extends React.Component<SectionProps> {
+class SidebarSection extends React.Component {
   toggleHidden() {
     this.props.handleToggle(this.props.name)
   }
@@ -52,8 +34,8 @@ class SidebarSection extends React.Component<SectionProps> {
   }
 }
 
-class SidebarBuilder extends React.Component<SidebarProps, SidebarState> {
-  constructor(props: SidebarProps) {
+class SidebarBuilder extends React.Component {
+  constructor(props) {
     super(props)
     if (
       props.location.state &&
@@ -70,7 +52,7 @@ class SidebarBuilder extends React.Component<SidebarProps, SidebarState> {
     }
   }
 
-  toggledTopicHandler = (name: string) => {
+  toggledTopicHandler = name => {
     const openedTopics = this.state.openedTopics
 
     if (openedTopics.includes(name)) {

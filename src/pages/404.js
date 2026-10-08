@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
@@ -8,13 +7,9 @@ import {
   ErrorPageHeader,
   ErrorPageDescription,
 } from '../components/styles'
-import '../css/main.min.css'
+import '../css/main.css'
 
-type Props = {
-  data: Object,
-}
-
-export default class Frameworks extends React.Component<Props> {
+export default class Frameworks extends React.Component {
   render() {
     return (
       <Layout data={this.props.data}>

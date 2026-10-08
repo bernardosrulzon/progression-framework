@@ -1,17 +1,7 @@
-// @flow
 import React from 'react'
 
-type Props = {
-  htmlAttributes: Object,
-  headComponents: Array<*>,
-  bodyAttributes: Object,
-  preBodyComponents: Array<*>,
-  body: string,
-  postBodyComponents: Array<*>,
-}
-
 // WARN: This is a lightly edited gatsby config file, shouldn't be edited unless it *really* has to.
-export default class HTML extends React.Component<Props> {
+export default class HTML extends React.Component {
   render() {
     return (
       <html {...this.props.htmlAttributes}>

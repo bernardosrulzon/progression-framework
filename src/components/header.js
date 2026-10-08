@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import styled from 'styled-components'
 import {
@@ -12,12 +11,6 @@ import {
   Title,
 } from './styles'
 import toTitleCase from '../utils/toTitleCase'
-
-type Props = {
-  onClickHandler: (?number) => (SyntheticUIEvent<>) => mixed,
-  pageData: Object,
-  activeLevel: ?number,
-}
 
 /*
  * The level picker is a flexbox which spreads the the levels evenly over the div.
@@ -34,7 +27,7 @@ const Spread = styled.div`
   justify-content: space-between;
 `
 
-const renderLevels = ({ onClickHandler, pageData, activeLevel }: Props) => {
+const renderLevels = ({ onClickHandler, pageData, activeLevel }) => {
   const toRender = []
 
   for (let i = 1; i <= pageData.levels; i++) {
@@ -59,7 +52,7 @@ const renderLevels = ({ onClickHandler, pageData, activeLevel }: Props) => {
   return toRender
 }
 
-const Header = ({ onClickHandler, pageData, activeLevel }: Props) => {
+const Header = ({ onClickHandler, pageData, activeLevel }) => {
   return (
     <FrameworkHeader>
       <FrameworkTitleGroup onClick={onClickHandler(null)}>

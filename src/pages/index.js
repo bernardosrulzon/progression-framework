@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,13 +11,9 @@ import {
   DescriptionText,
   DescriptionTitleGroup,
 } from '../components/styles'
-import '../css/main.min.css'
+import '../css/main.css'
 
-type Props = {
-  data: Object,
-}
-
-export default class Index extends React.Component<Props> {
+export default class Index extends React.Component {
   render() {
     return (
       <Layout data={this.props.data}>

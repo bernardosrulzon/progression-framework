@@ -37,7 +37,7 @@ progression-framework/
     [a bunch of config files]
 ```
 
-`site` contains our website files, `frameworks` contains our progression framework files, and `CODEOWNERS` is the file that defines who owns or manages a framework, file or folder.
+`src` contains our website files, `frameworks` contains our progression framework files, and `CODEOWNERS` is the file that defines who owns or manages a framework, file or folder.
 All the other files are configuration, which you should totally ignore 👌
 
 **The `frameworks` folder is what you want to pay attention to!**
@@ -134,5 +134,21 @@ This will automatically save your changes and open a pull request, allowing the 
 *This is what will happen after somebody has a successful review on their pull request. It'll take the modified files, and put them into the "master" version of the repo, which is what's on our site*
 
 
+## 🛠️ Running the site locally
+
+The website is a [Gatsby](https://www.gatsbyjs.com/) site. You'll need **Node.js 18+** and npm installed.
+
+``` sh
+npm install      # install dependencies
+npm run develop  # start the dev server at http://localhost:8000
+```
+
+To create a production build (output goes to `public/`):
+
+``` sh
+npm run build
+npm run serve    # preview the build at http://localhost:9000
+```
+
 ### 🤓 Looking for technical documentation?
-Take a look at the readme in the `src/` directory (https://github.com/monzo/progression-framework/blob/master/src/README.md)
+Take a look at the readme in the `src/` directory (`src/README.md`).

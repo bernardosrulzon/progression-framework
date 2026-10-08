@@ -1,36 +1,64 @@
 <p align="center">
-  <a href="https://www.monzo.com">
-    <img alt="Monzo favicon" src="https://d33wubrfki0l68.cloudfront.net/673084cc885831461ab2cdd1151ad577cda6a49a/92a4d/static/images/favicon.png" width="60" />
+  <a href="https://www.getninjas.com.br">
+    <img alt="GetNinjas" src="https://user-images.githubusercontent.com/6955526/62547358-76f72380-b83b-11e9-8e44-c0c8d7425535.png" width="60" />
   </a>
 </p>
 <h1 align="center">
-    Progression at Monzo
+    Progression at GetNinjas
 </h1>
 
-This is a static site that displays the progression frameworks that Monzo use internally for our staff 🙌
+This is a static site that displays the progression frameworks that GetNinjas uses internally for our staff 🙌
 
-It's built in Gatsby, and deployed using Netlify.
+It's built with [Gatsby](https://www.gatsbyjs.com/) and React, and deployed using Netlify.
 
 ## 🚀 Quick start
 
-You'll need the Gatsby CLI on your machine, so if you don't have it, install it!
-``` sh
-npm install --global gatsby-cli
-```
+### Requirements
 
-Next, navigate to the `progression-framework` directory and use yarn to get everything installed
+- [Node.js](https://nodejs.org/) 18 or newer (developed and tested with Node 22)
+- npm (bundled with Node.js)
+
+### Install the dependencies
+
+No global CLI is required — everything runs through the scripts below.
 
 ``` sh
 cd progression-framework
-yarn
+npm install
 ```
 
-If you're developing locally, you can start up the site locally with hot loading ⚡
+### Develop locally
+
+Start the site with hot reloading ⚡
+
 ``` sh
-gatsby develop
+npm run develop
 ```
 
-Finally, you can build everything into a set of static files 🛠️
+The site is then available at http://localhost:8000.
+
+### Build for production
+
+Bundle everything into a set of static files in `public/` 🛠️
+
 ``` sh
-gatsby build
+npm run build
 ```
+
+### Preview the production build
+
+``` sh
+npm run serve
+```
+
+This serves the contents of `public/` at http://localhost:9000.
+
+## 🧰 Other scripts
+
+| Script             | Description                                     |
+| ------------------ | ----------------------------------------------- |
+| `npm run develop`  | Start the local development server              |
+| `npm run build`    | Create a production build in `public/`          |
+| `npm run serve`    | Preview the production build                    |
+| `npm run clean`    | Clear the Gatsby cache and `public/`            |
+| `npm run format`   | Format the source files with Prettier           |
